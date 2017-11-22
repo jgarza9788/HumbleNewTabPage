@@ -1921,105 +1921,412 @@ function loadNewTabPage()
 	var allBookmarks = browser.bookmarks.getTree();
 	allBookmarks.then(logTree, onRejected);
 
+
+	
+
 }
 
-function createFolder(isHome)
+
+function TopSites()
 {
-	var folder;
-	folder = document.createElement('div');
-	folder.className = 'folder';
-
-	var topbar;
-	topbar = document.createElement('div');
-	topbar.className = 'topbar';
-
-	var backbutton;
-	backbutton = document.createElement('button');
-	backbutton.className = 'backbutton';
-	backbutton.innerText = '<-';
-
-	var title;
-	title = document.createElement('div');
-	title.className = 'title';
-	title.innerText = 'Title';
+	// var BMM = document.getElementById('Bookmarks Menu');
 
 	var contents;
 	contents = document.createElement('div');
 	contents.className = 'contents';
 
-	topbar.appendChild(backbutton);
+	// var divider = document.createElement('hr');
+	// contents.appendChild(divider);
+
+	// var TS = browser.topSites.get();
+	// console.log(TS);
+	// var i = 0;
+	// for (i = 0; i < TS.length; i++) 
+	// {
+	// 	console.log(TS[i].title);
+	// 	console.log(TS[i].url);
+	// } 
+
+	var i = 0;
+	browser.topSites.get(
+		function(result)
+		{
+			console.log(result[0].url);
+
+			result.forEach(function(item)
+			{
+				
+				if (item.url.substring(0,4) == 'file'
+					|| item.title == 'New Tab'
+				)
+				{
+					return;
+				}
+
+				console.log(item.title + ":" + item.url);
+
+				if (i < 10)
+				{
+					contents.appendChild(createLink(item));
+				}
+				i++;
+			}
+			);
+		}
+	);
+
+
+	// var i = 0;
+	// browser.topSites.get(function(result)
+	// {
+	// 	result.forEach(function(item)
+	// 	{
+	// 		console.log(item.title);
+	// 		console.log(item.url);
+	// 		console.log(item.title);
+
+	// 		contents.appendChild(createlink(item));
+
+	// 		// if (i < 10)
+	// 		// {
+	// 		// 	contents.appendChild(createlink(item));
+	// 		// }
+	// 		// i++;
+	// 	}	
+	// 	);
+	// }
+	// );
+
+
+	return contents;
+}
+
+// function titleToFolder(strTitle)
+// {
+// 	return strTitle.replace(/ /g,"");
+// }
+
+function onBack()
+{
+	// console.log(e.classList);
+	return function()
+	{
+		// var parentFolder = this.get
+
+		console.log('this');
+		console.log(this.className);
+		console.log(this.id);
+
+		var parentFolder = this.id.replace('<-','');
+
+		var div = document.getElementById('main');
+		var divs = div.getElementsByTagName('div');
+		for (var i = 0; i < divs.length; i += 1) 
+		{
+		
+			if (divs[i].className != 'folder')
+			{
+				continue;
+			}
+
+			// console.log(divs[i].className + " :: "+ divs[i].id );
+
+			if (divs[i].id == parentFolder)
+			{
+				console.log(divs[i].id + " : "+ divs[i].classList);
+				divs[i].style.display = 'inline-block';
+			}
+			else
+			{
+				divs[i].style.display = 'none';
+			}
+		}
+	}
+}
+
+function createFolder(isHome, strTitle, parentFolder)
+{
+	var folder;
+	folder = document.createElement('div');
+	folder.className = 'folder';
+	folder.id = strTitle
+	// folder.setAttribute("parentFolder",parentFolder);
+
+	var topbar;
+	topbar = document.createElement('div');
+	topbar.className = 'topbar';
+
+	if (!isHome)
+	{
+		var backbutton;
+		backbutton = document.createElement('button');
+		backbutton.className = 'backbutton';
+		backbutton.id = '/'+parentFolder;
+		// backbutton.id = '<-'+parentFolder;
+		// backbutton.innerText = '<-';
+		backbutton.onclick = onClickLink();
+		// backbutton.onclick = onBack();
+
+		var bbImg =document.createElement('img');
+		bbImg.src = '/resources/backArrow.png';
+		backbutton.appendChild(bbImg);
+
+		topbar.appendChild(backbutton);
+		folder.style.display = "none";
+	}
+	
+	var title;
+	title = document.createElement('div');
+	title.className = 'title';
+	title.innerText = strTitle;
 	topbar.appendChild(title);
 
-	folder.appendChild(topbar);
-	folder.appendChild(contents);
+	var contents;
+	contents = document.createElement('div');
+	contents.className = 'contents';
 
-	
+	folder.appendChild(topbar);
+	folder.appendChild(contents);	
+
+	if (isHome)
+	{
+		var divider = document.createElement('div');
+		divider.id = 'divider';
+		folder.appendChild(divider);
+
+		var topSites = TopSites();
+		folder.appendChild(topSites);
+
+		// var divider = document.createElement('hr');
+		// folder.appendChild(divider);
+
+		// var content2 = document.createElement('div');
+		// content2.className = 'contents';
+	}
 
 	return folder;
 }
 
 
-var indent = 0;
-function makeIndent(indentLength) 
+//https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_element_getattribute1
+
+// var prevFolder = "";
+// var currentFolder = "Bookmarks Menu";
+function onClickLink() 
 {
-	return ".".repeat(indentLength);
+	return function() 
+	{
+		// console.log(this.className);
+		// console.log(this.href);
+
+		var thisFolder = this.id.replace('/','');
+		// console.log("show: " + thisFolder);
+
+		var div = document.getElementById('main');
+		var divs = div.getElementsByTagName('div');
+		for (var i = 0; i < divs.length; i += 1) 
+		{
+		
+			if (divs[i].className != 'folder')
+			{
+				continue;
+			}
+
+			// console.log(divs[i].className + " :: "+ divs[i].id );
+
+			if (divs[i].id == thisFolder)
+			{
+				console.log(divs[i].id + " : "+ divs[i].classList);
+				divs[i].style.display = 'inline-block';
+			}
+			else
+			{
+				divs[i].style.display = 'none';
+			}
+		}
+	};
 }
 
-function logItems(bookmarkItem, indent, thisFolder) 
+function createLink(bookmarkItem)
+{
+	// console.log(bookmarkItem.title + "::" + bookmarkItem.url);
+	var url, url0, imgsrc, isFolder;
+	var id;
+
+	if (bookmarkItem.url)
+	{
+		isFolder = false;
+		url = bookmarkItem.url;
+		url0 = url.replace("https://","").replace("http://","");
+		url0 = url0.substring(0,url0.indexOf("/"));
+
+		// if (url0.includes('imgur'))
+		// {
+		// 	url0 = "imgur.com";
+		// }
+
+		// imgsrc = 'https://icons.better-idea.org/icon?url=' + url0 + '32..50..100';
+		// imgsrc = 'https://icons.better-idea.org/icon?url=' + url0 + '&size=40..80..120';
+		imgsrc = 'https://icons.better-idea.org/icon?url=' + url0 + '&size=80..120..200';
+		id = bookmarkItem.title;
+	}
+	else
+	{
+		isFolder = true;
+		url = '#';
+		imgsrc = '/resources/folderIcon.png';
+		id = '/' + bookmarkItem.title; 
+	}
+
+
+	var link;
+	link = document.createElement('a');
+	link.href = url;
+	link.id = id;
+	// link.getAttribute()
+	if (isFolder)
+	{
+		link.onclick = onClickLink();
+		// link.style.
+	}
+	
+
+	var image;
+	image = document.createElement('img');
+	//image.src = 'https://icons.better-idea.org/icon?url=' + url0 + '&size=80..120..200';
+	image.src = imgsrc;
+
+	var div;
+	div = document.createElement('div');
+	div.innerText = bookmarkItem.title;
+	
+	link.appendChild(image);
+	link.appendChild(div);
+
+	return link;
+
+	//https://icons.better-idea.org/icon?url=google.com&size=80..120..200
+	//url1 = 'https://icons.better-idea.org/icon?url=' + subText + '&size=80..120..200';
+}
+
+
+
+
+// var indent = 0;
+// function makeIndent(indentLength) 
+// {
+// 	return ".".repeat(indentLength);
+// }
+
+// function logItems(bookmarkItem, indent, thisFolder) 
+// {
+// 	if (bookmarkItem.url) 
+// 	{
+// 		//console.log(makeIndent(indent) + bookmarkItem.url);
+// 		if (bookmarkItem.url != "data:")
+// 		{
+// 			console.log(makeIndent(indent) + bookmarkItem.title + "::" + bookmarkItem.url);
+// 			var contents = thisFolder.getElementsByClassName('contents')[0];
+// 			contents.appendChild(createLink(bookmarkItem));
+// 		}
+// 	} 
+// 	else 
+// 	{
+// 		if (
+// 			bookmarkItem.title == ""
+// 			|| bookmarkItem.title == "Bookmarks Menu"
+// 			)
+// 		{
+// 			//do nothing
+// 		}
+// 		else
+// 		{
+// 			console.log(makeIndent(indent) + "Folder: " + bookmarkItem.title);
+// 			indent++;
+// 		}
+
+// 	}
+// 	if (bookmarkItem.children) 
+// 	{
+// 		var child;
+// 		for (child of bookmarkItem.children) 
+// 		{
+// 			// var newfolder = createFolder(false,bookmarkItem.title);
+// 			// document.getElementById('main').appendChild(newfolder);
+// 			// logItems(child, indent, newfolder);
+// 			// logItems(child, indent);
+// 		}
+// 	}
+// 	indent--;
+// }
+
+
+var folderCnt = 0;
+function logItems(bookmarkItem,parentFolder)
 {
 
-	if (bookmarkItem.title == "Bookmarks Toolbar"
-		|| bookmarkItem.title == "Other Bookmarks"
-		|| bookmarkItem.title == "Mobile Bookmarks"
-		)
+	// var ThisFolder = createFolder(false,bookmarkItem.title);
+
+	var ThisFolder;
+	if (folderCnt == 0)
 	{
-		return;
+		ThisFolder = createFolder(true,bookmarkItem.title,parentFolder);
 	}
-
-	if (bookmarkItem.url) 
+	else
 	{
-		//console.log(makeIndent(indent) + bookmarkItem.url);
+		ThisFolder = createFolder(false,bookmarkItem.title,parentFolder);
+	}
+	document.getElementById('main').appendChild(ThisFolder);
+	folderCnt += 1;
 
-		if (bookmarkItem.url != "data:")
-		{
-			console.log(makeIndent(indent) + bookmarkItem.title + "::" + bookmarkItem.url);
-		}
-	} 
-	else 
+	var child;
+	for (child of bookmarkItem.children)
 	{
-		if (
-			bookmarkItem.title == ""
-			|| bookmarkItem.title == "Bookmarks Menu"
+		// console.log(child.title);
+		// console.log(child.url);
+
+		if (child.url  == 'data:'
+			|| child.title  == 'Recent Tags'
 			)
 		{
-
+			continue;
 		}
-		else
+
+		var contents = ThisFolder.getElementsByClassName('contents')[0];
+		contents.appendChild(createLink(child));
+
+		if (child.children)
 		{
-			console.log(makeIndent(indent) + "Folder: " + bookmarkItem.title);
-			indent++;
+			logItems(child, bookmarkItem.title);
 		}
 
 	}
-	if (bookmarkItem.children) 
-	{
-		var child;
-		for (child of bookmarkItem.children) 
-		{
-			logItems(child, indent);
-		}
-	}
-	indent--;
 }
 
 //log bookmark in console
 function logTree(bookmarkItems) 
 {
-	var newfolder = createFolder(true);
+	// var newfolder = createFolder(true,"");
+	// document.getElementById('main').appendChild(newfolder);
+	// logItems(bookmarkItems[0], 0, newfolder);
 
-	document.getElementById('main').appendChild(newfolder);
+	// logItems(bookmarkItems[0], 0);
 
-	logItems(bookmarkItems[0], 0, newfolder);
+	var bookmarkItem;
+	for (bookmarkItem of bookmarkItems[0].children) 
+	{
+		// console.log(bookmarkItem.title);
+
+		if (bookmarkItem.title == "Bookmarks Menu")
+		{
+			logItems(bookmarkItem,"");
+		}
+
+		// var newfolder = createFolder(false,bookmarkItem.title);
+		// document.getElementById('main').appendChild(newfolder);
+		// logItems(child, indent, newfolder);
+		// logItems(child, indent);
+	}
 }
 
 //console log error
