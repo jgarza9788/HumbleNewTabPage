@@ -1,6 +1,6 @@
 {
 	"name": "New Tab Page",
-	"version": "0.2",
+	"version": "0.3",
 	"manifest_version": 2,
 	"description": "Redesigned new tab page featuring your bookmarks, most visited",
 	"icons": {
@@ -18,6 +18,10 @@
 	"chrome_url_overrides":
 	{
 		"newtab": "newtab.html"
+	},
+	"chrome_settings_overrides": 
+	{
+		"homepage": "newtab.html"
 	},
 	"background" : {
 		"scripts" : ["background.js"],

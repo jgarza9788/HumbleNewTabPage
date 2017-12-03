@@ -1355,147 +1355,221 @@
 // 	}
 // }
 
+/*
+
+titlefont_color: '#000000',
+titlebackground_color: '#b8b8b8',
+*/
+
 // options : default values
 var config = {
-	font: 'Sans-serif',
+	font: 'Helvetica',
 	font_size: 16,
 	theme: 'Default',
-	font_color: '#555555',
+	titlefont_color: '#000000',
+	font_color: '#000000',
+	titlebackground_color: '#b8b8b8',
 	background_color: '#ffffff',
-	highlight_color: '#57b0ff',
-	highlight_font_color: '#000000',
-	shadow_color: '#57b0ff',
-	background_image_file: '',
-	background_image: '',
-	background_align: 'left top',
-	background_repeat: 'repeat',
-	background_size: 'auto',
-	shadow_blur: 1,
+	highlight_color: '#ffffff',
+	highlight_font_color: '#7f7f7f',
+	shadow_color: '#949494',
+	// background_image_file: '',
+	// background_image: '',
+	// background_align: 'left top',
+	// background_repeat: 'repeat',
+	// background_size: 'auto',
+	shadow_blur: 1.1,
 	highlight_round: 1,
 	fade: 1,
-	spacing: 1,
-	width: 1,
-	h_pos: 1,
-	v_margin: 1,
-	slide: 1,
-	hide_options: 0,
-	lock: 0,
-	weather_location: '',
-	weather_location_id: '',
-	weather_units: 'c',
+	// spacing: 1,
+	// width: 1,
+	// h_pos: 1,
+	// v_margin: 1,
+	// slide: 1,
+	// hide_options: 0,
+	// lock: 0,
+	// weather_location: '',
+	// weather_location_id: '',
+	// weather_units: 'c',
 	show_top: 1,
-	show_apps: 1,
-	show_recent: 1,
-	show_weather: 1,
-	show_closed: 1,
-	show_devices: 1,
-	show_root: 0,
+	// show_apps: 1,
+	// show_recent: 1,
+	// show_weather: 1,
+	// show_closed: 1,
+	// show_devices: 1,
+	// show_root: 0,
 	newtab: 0,
-	auto_close: 0,
-	auto_scale: 1,
-	css: '',
-	number_top: 20,
-	number_closed: 10,
-	number_recent: 10
+	// auto_close: 0,
+	// auto_scale: 1,
+	// css: '',
+	number_top: 10,
+	// number_closed: 10,
+	// number_recent: 10,
+	folderOrder: '',
 };
 
 // color theme values
 var themes = {
-	Default: {},
+	Default: {
+		// titlefont_color: '#3f3f3f',
+		// font_color: '#7f7f7f',
+		// titlebackground_color: '#dddddd',
+		// background_color: '#f6f6f6',
+		// highlight_color: '#ffffff',
+		// highlight_font_color: '#000000',
+		// shadow_color: '#aaaaaa'
+	},
 	Classic: {
+		titlefont_color: '#3f3f3f',
 		font_color: '#000000',
+		titlebackground_color: '#bfbfbf',
 		background_color: '#ffffff',
 		highlight_color: '#3399ff',
 		highlight_font_color: '#ffffff',
 		shadow_color: '#97cbff'
 	},
 	Dusk: {
+		titlefont_color: '#79759a',
 		font_color: '#c8b9be',
+		titlebackground_color: '#3d3c4e',
 		background_color: '#56546b',
 		highlight_color: '#494d5a',
 		highlight_font_color: '#ffd275',
 		shadow_color: '#000000'
 	},
 	Elegant: {
+		titlefont_color: '#3f3f3f',
 		font_color: '#888888',
+		titlebackground_color: '#dddddd',
 		background_color: '#f6f6f6',
 		highlight_color: '#ffffff',
 		highlight_font_color: '#000000',
 		shadow_color: '#aaaaaa'
 	},
 	Frosty: {
+		titlefont_color: '#e3edf3',
 		font_color: '#3e5e82',
+		titlebackground_color: '#0080c0',
 		background_color: '#e4eef3',
 		highlight_color: '#0080c0',
 		highlight_font_color: '#ffffff',
-		shadow_color: '#8080ff'
+		shadow_color: '#8080ff',
 	},
 	Hacker: {
+		titlefont_color: '#00ff00',
 		font_color: '#00ff00',
+		titlebackground_color: '#000000',
 		background_color: '#000000',
 		highlight_color: '#00ff00',
 		highlight_font_color: '#000000',
 		shadow_color: '#ff0000'
 	},
 	Melon: {
+		titlefont_color: '#f8ffe1',
 		font_color: '#594526',
+		titlebackground_color: '#ff8000',
 		background_color: '#f8ffe1',
 		highlight_color: '#ff8000',
 		highlight_font_color: '#ffff80',
 		shadow_color: '#ff80c0'
 	},
 	Midnight: {
+		titlefont_color: '#bddeff',
 		font_color: '#bfdfff',
+		titlebackground_color: '#0a0f18',
 		background_color: '#101827',
 		highlight_color: '#000000',
 		highlight_font_color: '#80ecff',
 		shadow_color: '#0080ff'
 	},
 	Slate: {
+		titlefont_color: '#555555',
 		font_color: '#555555',
+		titlebackground_color: '#b7babf',
 		background_color: '#b7babf',
 		highlight_color: '#aaaaaa',
 		highlight_font_color: '#000000',
 		shadow_color: '#2a2a2a'
 	},
 	Trees: {
+		titlefont_color: '#1f9600',
 		font_color: '#cdd088',
+		titlebackground_color: '#25642c',
 		background_color: '#566157',
 		highlight_color: '#4d674b',
 		highlight_font_color: '#ffff80',
 		shadow_color: '#183010'
 	},
 	Valentine: {
+		titlefont_color: '#895fc2',
 		font_color: '#895fc2',
+		titlebackground_color: '#ffb7f0',
 		background_color: '#eae1ff',
 		highlight_color: '#ffb7f0',
 		highlight_font_color: '#f00000',
 		shadow_color: '#ffffff'
 	},
 	Warm: {
+		titlefont_color: '#ffeedc',
 		font_color: '#824100',
+		titlebackground_color: '#824100',
 		background_color: '#ffeedd',
 		highlight_color: '#fffae8',
 		highlight_font_color: '#800000',
 		shadow_color: '#d98764'
 	}
+	,
+	Monokai: 
+	{
+		titlefont_color: '#a2d92b',
+		font_color: '#6be5f2',
+		titlebackground_color: '#262620',
+		background_color: '#262621',
+		highlight_color: '#f22987',
+		highlight_font_color: '#262621',
+		shadow_color: '#a37ef2'
+	}
+	,
+	Dracula: 
+	{
+		titlefont_color: '#6272a4',
+		font_color: '#6272a4',
+		titlebackground_color: '#44475a',
+		background_color: '#282a36',
+		highlight_color: '#44475a',
+		highlight_font_color: '#f8f8f2',
+		shadow_color: '#000000'
+	}
 };
 var theme = {};
 
 // get config value or default
-function getConfig(key) {
+function getConfig(key)
+{
+	// console.log('getConfig('+key+')');
+
 	var value =  localStorage.getItem('options.' + key);
 	if (value != null)
+	{
 		return typeof config[key] === 'number' ? Number(value) : value;
+	}
 	else
+	{
 		return (theme.hasOwnProperty(key) ? theme[key] : config[key]);
+	}
 }
 
 // set config value
-function setConfig(key, value) {
+function setConfig(key, value) 
+{
+	// console.log('setConfig(' + key + ',' + value + ')');
+
 	if (value != null)
+	{
 		localStorage.setItem('options.' + key, typeof config[key] === 'number' ? Number(value) : value);
-	else {
+	}
+	else 
+	{
 		localStorage.removeItem('options.' + key);
 		value = (theme.hasOwnProperty(key) ? theme[key] : config[key]);
 	}
@@ -1507,6 +1581,14 @@ function setConfig(key, value) {
 	else if (key == 'theme') 
 	{
 		theme = themes[value];
+
+		for (var i in theme)
+		{
+			// console.log('i: ' + i);
+			// console.log('theme[i]: '+ theme[i]);
+			setConfig(i,theme[i]);
+		}
+
 		for (var i in config) 
 		{
 			if (i != key) 
@@ -1541,16 +1623,21 @@ function setConfig(key, value) {
 // map config keys to styles
 var styles = {};
 
-function getStyle(key, value) {
+function getStyle(key, value) 
+{
 	switch(key) {
 		case 'font':
-			return '#main a { font-family: "' + value + '"; }';
+			return '#main a { font-family: "' + value + '"; } .gu-mirror .contents {font-family: "' + value + '"; }';
 		case 'font_size':
-			return '#main a { font-size: ' + (value / 10) + 'em; }';
+			return '#main a { font-size: ' + (value / 10) + 'em; } .gu-mirror .contents { font-size: ' + (value / 10) + 'em; }';
+		case 'titlefont_color':
+			return '.title { color: ' + value + '; }';
 		case 'font_color':
-			return '#main a { color: ' + value + '; }';
+			return '#main a { color: ' + value + '; } .gu-mirror .contents { color: ' + value + '; }';
+		case 'titlebackground_color':
+			return '.topbar { background-color: ' + value + '; }';
 		case 'background_color':
-			return 'body { background-color: ' + value + '; }';
+			return '.gu-mirror {background-color: ' + value + '; } body { background-color: ' + value + '; }';
 		case 'background_image':
 			return 'body { background-image: url(' + value + '); }';
 		case 'background_image_file':
@@ -1566,9 +1653,9 @@ function getStyle(key, value) {
 		case 'highlight_color':
 			return '#main a:hover { background-color: ' + value + '; }';
 		case 'shadow_color':
-			return '#main a:hover { box-shadow: 0 0 ' + scale(getConfig('shadow_blur'), 7, 100) + 'px ' + value + '; }';
+			return '#main a:hover { box-shadow: 0px ' + scale(getConfig('shadow_blur'), 7, 100)/2 + 'px ' + scale(getConfig('shadow_blur'), 7, 100) + 'px ' + value + '; }';
 		case 'shadow_blur':
-			return '#main a:hover { box-shadow: 0 0 ' + scale(value, 7, 100) + 'px ' + getConfig('shadow_color') + '; }';
+			return '#main a:hover { box-shadow: 0px ' + (scale(value, 7, 100))/2 + 'px ' + scale(value, 7, 100) + 'px ' + getConfig('shadow_color') + '; }';
 		case 'highlight_round':
 			return '#main a { border-radius: ' + scale(value, .2, 1.5) + 'em; }';
 		case 'fade':
@@ -1620,17 +1707,31 @@ function hexToRgb(hex) {
 }
 
 // apply config value change
-function onChange(key, value) {
-	if (value == null)
-		value = getConfig(key);
+function onChange(key, value) 
+{
 
-	if (value != config[key]) {
+	// console.log('onChange(' + key +','+ value + ')');
+
+	if (value == null)
+	{
+		value = getConfig(key);
+	}
+
+	// console.log('value: ' + value);
+
+	// if (value != config[key]) 
+	// {
 		var css = getStyle(key, value);
-		if (css) {
+		// console.log('css: ' + css);
+		if (css) 
+		{
 			var style;
 			if (styles.hasOwnProperty(key))
+			{
 				style = styles[key];
-			else {
+			}
+			else 
+			{
 				style = document.createElement('style');
 				styles[key] = style;
 			}
@@ -1639,102 +1740,151 @@ function onChange(key, value) {
 			// add style rules
 			style.innerText = css;
 		}
-	} else if (styles.hasOwnProperty(key)) {
-		// remove rules
-		styles[key].parentNode.removeChild(styles[key]);
-		delete styles[key];
-	}
+	// } 
+	// else if (styles.hasOwnProperty(key)) 
+	// {
+	// 	// remove rules
+	// 	styles[key].parentNode.removeChild(styles[key]);
+	// 	delete styles[key];
+	// }
+
 	// refresh dependent values
 	if (key == 'width')
+	{
 		onChange('h_pos');
+	}
 	else if (key == 'shadow_blur')
+	{
 		onChange('shadow_color');
-	else if (key == 'auto_scale') {
+	}
+	else if (key == 'auto_scale') 
+	{
 		onChange('width');
 		onChange('v_margin');
 	}
 
 	// update options panel
 	if (!settingsInitialized)
+	{
 		return;
+	}
 
 	// show/hide default button
 	var input = document.getElementById('options_' + key);
-	if (input) {
+	if (input) 
+	{
 		var isDefault = value == (theme.hasOwnProperty(key) ? theme[key] : config[key]);
 		input.reset.style.visibility = (isDefault ? 'hidden' : null);
 		if (input.swatch)
+		{
 			input.swatch.value = value;
+		}
 	}
 }
 
 // loads config settings
 function loadSettings() 
 {
+
+	// console.log('loadSettings()');
+
 	// load theme
 	theme = themes[getConfig('theme')] || {};
 	// load settings
 	for (var key in config)
+	{
 		if (key === 'background_image_file')
+		{
 			setTimeout(function() { onChange('background_image_file'); }, 0);
+		}
 		else
+		{
+			// console.log('loadSettings-->' + key);      
 			onChange(key);
+		}
+	}
 }
 
 // apply config values to input controls
-function showConfig(key) {
+function showConfig(key) 
+{
 	var input = document.getElementById('options_' + key);
 	if (!input || input.type === 'file')
+	{
 		return;
+	}
 
 	input[input.type === 'checkbox' ? 'checked' : 'value'] = getConfig(key);
 }
 
 // initialize config settings
-function initConfig(key) {
+function initConfig(key) 
+{
+
+
 	var input = document.getElementById('options_' + key);
 	if (!input)
+	{
 		return;
+	}
 
-	if (input.type == 'color') {
+	// console.log('initConfig(' + key + ')');
+	// console.log('initConfig: ' + input.type );
+
+
+	if (input.type == 'color') 
+	{
 		input.type = 'text';
 		input.className = 'color';
 		var swatch = document.createElement('input');
 		swatch.type = 'color';
 		swatch.value = input.value;
-		swatch.oninput = function(event) {
+		swatch.oninput = function(event) 
+		{
 			input.value = this.value;
 			return input.onchange(event);
 		};
 		input.swatch = swatch;
 		input.parentNode.appendChild(swatch);
 	}
-	input.onchange = function(event) {
-		if (input.type == 'file') {
+	
+	input.onchange = function(event) 
+	{
+		if (input.type == 'file') 
+		{
 			// load file
-			if (event.target.files.length == 1) {
+			if (event.target.files.length == 1) 
+			{
 				var file = event.target.files[0];
-				if (file.size > 2097152) {
+				if (file.size > 2097152) 
+				{
 					input.value = null;
 					alert('Image must be less than 2 MB.');
 					return false;
 				}
 				var reader = new FileReader();
-				reader.onload = function(f) {
+				reader.onload = function(f) 
+				{
 					if (f.target.result)
+					{
 						setConfig(key, f.target.result);
+					}
 				};
 				reader.readAsDataURL(file);
 			}
-		} else
+		} 
+		else
+		{
 			setConfig(key, input.type == 'checkbox' ? Number(input.checked) : input.value);
+		}
 	};
 
 	var reset = document.createElement('a');
 	reset.href = '#';
 	reset.className = 'revert';
 	reset.title = 'Reset to default';
-	reset.onclick = function() {
+	reset.onclick = function() 
+	{
 		setConfig(key, null);
 		showConfig(key);
 		return false;
@@ -1748,14 +1898,25 @@ function initConfig(key) {
 var settingsInitialized = false;
 
 // initialize options panel
-function initSettings() {
+function initSettings() 
+{
+	// console.log('initSettings()');
+
 	if (settingsInitialized)
+	{
 		return;
+	}
 
 	// options menu
-	document.getElementById('options_button').onclick = function() {
+	document.getElementById('options_button').onclick = function() 
+	{
 		for (var key in config)
+		{
+			// console.log('config::')
+			// console.log(key);
+
 			showConfig(key);
+		}
 
 		return true;
 	};
@@ -1764,9 +1925,12 @@ function initSettings() {
 	var options = document.getElementById('options');
 	var nav = document.getElementById('options_nav');
 	var index = 0;
-	for (var i=0; i<nav.children.length; i++) {
+
+	for (var i=0; i<nav.children.length; i++) 
+	{
 		var a = nav.children[i].firstChild;
-		a.onclick = function(e) {
+		a.onclick = function(e) 
+		{
 			// clear current style
 			nav.children[index].firstChild.classList.remove('current');
 			options.getElementsByClassName('section')[index].classList.remove('current');
@@ -1774,8 +1938,11 @@ function initSettings() {
 			index = Array.prototype.indexOf.call(nav.children, this.parentNode);
 			nav.children[index].firstChild.classList.add('current');
 			options.getElementsByClassName('section')[index].classList.add('current');
+
 			// show custom css on advanced tab
-			if (index === nav.children.length-1) {
+			/*
+			if (index === nav.children.length-1) 
+			{
 				var allcss = document.getElementById('all_css');
 				allcss.value = '';
 				for (var key in config) {
@@ -1784,8 +1951,12 @@ function initSettings() {
 						allcss.value +=  css + '\n';
 				}
 			}
+			*/
+
 			// import/export
-			if (index === nav.children.length-2) {
+			/*
+			if (index === nav.children.length-2) 
+			{
 				var exports = document.getElementById('options_export');
 				var imports = document.getElementById('options_import');
 				var replacer = function(key, value) {
@@ -1814,15 +1985,18 @@ function initSettings() {
 					}
 				};
 			}
+			*/
 			return false;
 		};
 	}
 
 	// add options to hide bookmark folders
-	chrome.bookmarks.getTree(function(result) {
+	chrome.bookmarks.getTree(function(result) 
+	{
 		var placeholder = document.getElementById('options_show_bookmarks');
 		var nodes = result[0].children;
-		for (var i = 0; i < nodes.length; i++) {
+		for (var i = 0; i < nodes.length; i++) 
+		{
 			var key = 'show_' + nodes[i].id;
 			config[key] = 1;
 
@@ -1852,7 +2026,9 @@ function initSettings() {
 
 		// show settings
 		for (var key in config)
+		{
 			initConfig(key);
+		}
 
 		loadSettings();
 
@@ -1869,7 +2045,8 @@ function initSettings() {
 		}
 
 		// load font list
-		if (chrome.fontSettings) {
+		if (chrome.fontSettings) 
+		{
 			chrome.fontSettings.getFontList(function(fonts)  {
 				var select = document.getElementById('options_font');
 				if (select.childNodes.length > 0)
@@ -1889,196 +2066,223 @@ function initSettings() {
 	});
 }
 
+
+function clearLocalStorage()
+{
+	localStorage.clear();
+}
+// clearLocalStorage();
+
 // initialize page
+
+initSettings();
 loadSettings();
-// loadColumns();
 loadNewTabPage();
 
+// loadColumns();
+// loadBookmarks();
+// loadTopSites();
 
 
-
-//load the NewTabPage
-function loadNewTabPage() 
+// var starttime;
+function loadNewTabPage()
 {
+	// var bookmarkPromise;
+	// bookmarkPromise = getBookmarks();
+	// bookmarkPromise.then(bookmarkLoop, onRejected);
+	// bookmarkPromise.then(loadTopSites);
 
-	// var allBookmarks = browser.bookmarks.getTree()
-	// console.log(allBookmarks.length);
+	// bookmarksLoaded = 0;
+	// topsitesLoaded = 0;
 
-	// for (var i = 0; i < allBookmarks.length; i++)
-	// {
-	// 	console.log(allBookmarks[i]);
-	// 	console.log(allBookmarks[i].title);
-	// 	if (allBookmarks[i].children) 
-	// 	{
-	// 		var child;
-	// 		for (child of allBookmarks[i].children) 
-	// 		{
-	// 			logItems(child, indent);
-	// 		}
-	// 	}
-	// }
+	// var d = new Date;
+	// starttime = d.getTime();
 
+	getBookmarks();
+	loadTopSites();
+	reorderFolders();
+}
+
+
+
+var bookmarksLoaded;
+function getBookmarks() 
+{
+	bookmarksLoaded = 0;
 	var allBookmarks = browser.bookmarks.getTree();
-	allBookmarks.then(logTree, onRejected);
+	allBookmarks.then(bookmarkLoop, onRejected);
+	allBookmarks.then(function(){bookmarksLoaded = 1;})
 
+	// allBookmarks.then(
+	// 	function(){
+	// 		console.log('allBookmarks endtime');
+	// 		var d = new Date;
+	// 		console.log(d.getTime() - starttime);
+	// 	}
+	// )
 
+	// return allBookmarks;
+	// allBookmarks.then(reorderTopSites);
+}
+
+var topsitesLoaded;
+function loadTopSites()
+{
+	// console.log(getConfig('show_top'));
+	// console.log(getConfig('number_top'));
 	
+	topsitesLoaded = 0;
 
-}
-
-
-function TopSites()
-{
-	// var BMM = document.getElementById('Bookmarks Menu');
-
-	var contents;
-	contents = document.createElement('div');
-	contents.className = 'contents';
-
-	// var divider = document.createElement('hr');
-	// contents.appendChild(divider);
-
-	// var TS = browser.topSites.get();
-	// console.log(TS);
-	// var i = 0;
-	// for (i = 0; i < TS.length; i++) 
-	// {
-	// 	console.log(TS[i].title);
-	// 	console.log(TS[i].url);
-	// } 
-
-	var i = 0;
-	browser.topSites.get(
-		function(result)
-		{
-			console.log(result[0].url);
-
-			result.forEach(function(item)
-			{
-				
-				if (item.url.substring(0,4) == 'file'
-					|| item.title == 'New Tab'
-				)
-				{
-					return;
-				}
-
-				console.log(item.title + ":" + item.url);
-
-				if (i < 10)
-				{
-					contents.appendChild(createLink(item));
-				}
-				i++;
-			}
-			);
-		}
-	);
-
-
-	// var i = 0;
-	// browser.topSites.get(function(result)
-	// {
-	// 	result.forEach(function(item)
-	// 	{
-	// 		console.log(item.title);
-	// 		console.log(item.url);
-	// 		console.log(item.title);
-
-	// 		contents.appendChild(createlink(item));
-
-	// 		// if (i < 10)
-	// 		// {
-	// 		// 	contents.appendChild(createlink(item));
-	// 		// }
-	// 		// i++;
-	// 	}	
-	// 	);
-	// }
-	// );
-
-
-	return contents;
-}
-
-// function titleToFolder(strTitle)
-// {
-// 	return strTitle.replace(/ /g,"");
-// }
-
-function onBack()
-{
-	// console.log(e.classList);
-	return function()
+	if (getConfig('show_top') == 1)
 	{
-		// var parentFolder = this.get
+		var topsites = browser.topSites.get();
+		topsites.then(topsitesLoop, onRejected);
+		topsites.then(function(){topsitesLoaded = 1;})
+		// topsites.then(reorderTopSites);
 
-		console.log('this');
-		console.log(this.className);
-		console.log(this.id);
-
-		var parentFolder = this.id.replace('<-','');
-
-		var div = document.getElementById('main');
-		var divs = div.getElementsByTagName('div');
-		for (var i = 0; i < divs.length; i += 1) 
-		{
 		
-			if (divs[i].className != 'folder')
+	}
+	else
+	{
+		topsitesLoaded = 1;
+	}
+
+}
+
+function reorderFolders()
+{
+
+	if (bookmarksLoaded + topsitesLoaded < 2)
+	{
+		setTimeout(reorderFolders,100);
+		// console.log('try again');
+		return;
+	}
+
+	var main  = document.getElementById('main');
+
+	var folderOrder = getConfig('folderOrder');
+	var folderOrderArray = folderOrder.split(","); 
+
+	if (folderOrder != '')
+	{
+		for (var i = 0; i < folderOrderArray.length;i++)
+		{
+			var thisEl = document.getElementById(folderOrderArray[i]);		
+
+			if (thisEl != null)
 			{
-				continue;
+				main.insertBefore(thisEl,main.children[i]);
 			}
 
-			// console.log(divs[i].className + " :: "+ divs[i].id );
-
-			if (divs[i].id == parentFolder)
-			{
-				console.log(divs[i].id + " : "+ divs[i].classList);
-				divs[i].style.display = 'inline-block';
-			}
-			else
-			{
-				divs[i].style.display = 'none';
-			}
 		}
 	}
+
 }
 
-function createFolder(isHome, strTitle, parentFolder)
+
+
+
+
+// function TopSites(num)
+function topsitesLoop(topsiteItems)
+{
+
+	// console.log(topsiteItems);
+
+	var TS_Folder = createFolder(true,{title:'TopSites',id:'topsites'},'');
+	document.getElementById('main').appendChild(TS_Folder);
+	TS_Folder.className = 'specialfolder';
+	// TS_Folder.style.order="1" 
+
+	var divs = TS_Folder.getElementsByTagName('div');
+	var contents;
+	for (var i = 0; i < divs.length; i += 1) 
+	{
+	
+		if (divs[i].className == 'contents')
+		{
+			contents = divs[i];
+			break;
+		}
+	}
+
+	// var contents = TS_Folder.getElementsByClassName('contents');
+	// console.log(contents);
+
+	var num = getConfig('number_top');
+	var cnt = 0;
+	for (var i = 0; i < topsiteItems.length; i++) 
+	{
+
+		if (topsiteItems[i].url.substring(0,4) == 'file'
+			|| topsiteItems[i].title == 'New Tab'
+			)
+		{
+			continue;
+		}
+
+		// console.log(topsiteItems[i].title + "::" + topsiteItems[i].url);
+
+		if (cnt < num)
+		{
+			contents.appendChild(createLink(topsiteItems[i]));
+		}
+		cnt++;
+	}
+
+}
+
+
+// function createFolder(isRoot, id ,strTitle, parentId)
+// function createFolder(isRoot ,strTitle, parentFolder)
+function createFolder(isRoot ,bookmarkItem, parentId)
 {
 	var folder;
 	folder = document.createElement('div');
 	folder.className = 'folder';
-	folder.id = strTitle
+	folder.id = bookmarkItem.id;
+	// folder.id = strTitle;
+	// folder.id = id;//strTitle
 	// folder.setAttribute("parentFolder",parentFolder);
 
 	var topbar;
 	topbar = document.createElement('div');
 	topbar.className = 'topbar';
 
-	if (!isHome)
+	var backbutton;
+	backbutton = document.createElement('button');
+	backbutton.className = 'backbutton';
+	backbutton.id = '/'+parentId;
+	// backbutton.id = '/'+parentFolder;
+	// backbutton.id = '<-'+parentFolder;
+	// backbutton.innerText = '<-';
+	backbutton.onclick = onClickLink();
+	// backbutton.onclick = onBack();
+
+	var bbImg =document.createElement('img');
+	bbImg.src = '/resources/backArrow.png';
+	backbutton.appendChild(bbImg);
+
+	topbar.appendChild(backbutton);
+
+
+	//don't show back button if at root
+	if (isRoot)
 	{
-		var backbutton;
-		backbutton = document.createElement('button');
-		backbutton.className = 'backbutton';
-		backbutton.id = '/'+parentFolder;
-		// backbutton.id = '<-'+parentFolder;
-		// backbutton.innerText = '<-';
-		backbutton.onclick = onClickLink();
-		// backbutton.onclick = onBack();
+		backbutton.style.display = "none";
+	}
 
-		var bbImg =document.createElement('img');
-		bbImg.src = '/resources/backArrow.png';
-		backbutton.appendChild(bbImg);
-
-		topbar.appendChild(backbutton);
+	if (!isRoot)
+	{
 		folder.style.display = "none";
 	}
 	
 	var title;
 	title = document.createElement('div');
 	title.className = 'title';
-	title.innerText = strTitle;
+	title.innerText = bookmarkItem.title;
+	// title.innerText = strTitle;
 	topbar.appendChild(title);
 
 	var contents;
@@ -2088,30 +2292,11 @@ function createFolder(isHome, strTitle, parentFolder)
 	folder.appendChild(topbar);
 	folder.appendChild(contents);	
 
-	if (isHome)
-	{
-		var divider = document.createElement('div');
-		divider.id = 'divider';
-		folder.appendChild(divider);
-
-		var topSites = TopSites();
-		folder.appendChild(topSites);
-
-		// var divider = document.createElement('hr');
-		// folder.appendChild(divider);
-
-		// var content2 = document.createElement('div');
-		// content2.className = 'contents';
-	}
 
 	return folder;
 }
 
 
-//https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_element_getattribute1
-
-// var prevFolder = "";
-// var currentFolder = "Bookmarks Menu";
 function onClickLink() 
 {
 	return function() 
@@ -2122,6 +2307,7 @@ function onClickLink()
 		var thisFolder = this.id.replace('/','');
 		// console.log("show: " + thisFolder);
 
+		var found = false;
 		var div = document.getElementById('main');
 		var divs = div.getElementsByTagName('div');
 		for (var i = 0; i < divs.length; i += 1) 
@@ -2134,17 +2320,66 @@ function onClickLink()
 
 			// console.log(divs[i].className + " :: "+ divs[i].id );
 
-			if (divs[i].id == thisFolder)
+			// if (divs[i].id == thisFolder && !found)
+			if (divs[i].id == thisFolder )
 			{
-				console.log(divs[i].id + " : "+ divs[i].classList);
+				// console.log(divs[i].id + " : "+ divs[i].classList);
 				divs[i].style.display = 'inline-block';
+				// found = true;
 			}
 			else
 			{
 				divs[i].style.display = 'none';
 			}
 		}
+
+		////debugging
+		// console.log('thisFolder: ' + thisFolder);
+		// console.log(backbuttons);
+		// console.log('backbuttons[0].id: ' + backbuttons[0].id);
+
+		var SFs = document.getElementsByClassName('specialfolder');
+		var Fs = document.getElementsByClassName('folder');
+
+		//if at RootFolder
+		if (IsRootFolder(thisFolder))
+		{
+			for (var i =0 ; i < SFs.length;i++)
+			{
+				SFs[i].style.display = 'block';
+			}
+			
+			for (var i =0 ; i < Fs.length;i++)
+			{
+				if (IsRootFolder(Fs[i].id))
+				{
+					Fs[i].style.display = 'block';
+				}
+			}
+		}
+		else
+		{
+			for (var i =0 ; i < SFs.length;i++)
+			{
+				SFs[i].style.display = 'none';
+			}
+		}
+
+
+
+
 	};
+}
+
+function IsRootFolder(id)
+{
+	var result = false;
+	if (document.getElementById(id).getElementsByTagName('button')[0].id == '/')
+	{
+		result = true;
+	}
+
+	return result;
 }
 
 function createLink(bookmarkItem)
@@ -2162,20 +2397,20 @@ function createLink(bookmarkItem)
 
 		// if (url0.includes('imgur'))
 		// {
-		// 	url0 = "imgur.com";
+		// 	url0 = "https://imgur.com/";
 		// }
 
-		// imgsrc = 'https://icons.better-idea.org/icon?url=' + url0 + '32..50..100';
-		// imgsrc = 'https://icons.better-idea.org/icon?url=' + url0 + '&size=40..80..120';
 		imgsrc = 'https://icons.better-idea.org/icon?url=' + url0 + '&size=80..120..200';
 		id = bookmarkItem.title;
+		// id = bookmarkItem.id;
 	}
 	else
 	{
 		isFolder = true;
 		url = '#';
 		imgsrc = '/resources/folderIcon.png';
-		id = '/' + bookmarkItem.title; 
+		// id = '/' + bookmarkItem.title; 
+		id = '/' + bookmarkItem.id; 
 	}
 
 
@@ -2183,11 +2418,37 @@ function createLink(bookmarkItem)
 	link = document.createElement('a');
 	link.href = url;
 	link.id = id;
+
+
 	// link.getAttribute()
 	if (isFolder)
 	{
 		link.onclick = onClickLink();
 		// link.style.
+	}
+	else
+	{
+		
+		var newtab = getConfig('newtab');
+		// console.log(newtab);
+
+		if (newtab==1)
+		{
+			link.target = '_blank';
+		}
+		else if (newtab == 2)
+		{
+			link.onclick = function(event) 
+			{
+				browser.tabs.getCurrent(function(tab) 
+				{
+					browser.tabs.create({url: url, active: false, openerTabId: tab.id});
+				});
+				return false;
+			};
+		}
+
+
 	}
 	
 
@@ -2196,12 +2457,15 @@ function createLink(bookmarkItem)
 	//image.src = 'https://icons.better-idea.org/icon?url=' + url0 + '&size=80..120..200';
 	image.src = imgsrc;
 
-	var div;
-	div = document.createElement('div');
-	div.innerText = bookmarkItem.title;
 	
+	// var div;
+	// div = document.createElement('div');
+	// div.innerText = bookmarkItem.title;
+	
+	var title = document.createTextNode(bookmarkItem.title);
+
 	link.appendChild(image);
-	link.appendChild(div);
+	link.appendChild(title);
 
 	return link;
 
@@ -2211,81 +2475,50 @@ function createLink(bookmarkItem)
 
 
 
-
-// var indent = 0;
-// function makeIndent(indentLength) 
-// {
-// 	return ".".repeat(indentLength);
-// }
-
-// function logItems(bookmarkItem, indent, thisFolder) 
-// {
-// 	if (bookmarkItem.url) 
-// 	{
-// 		//console.log(makeIndent(indent) + bookmarkItem.url);
-// 		if (bookmarkItem.url != "data:")
-// 		{
-// 			console.log(makeIndent(indent) + bookmarkItem.title + "::" + bookmarkItem.url);
-// 			var contents = thisFolder.getElementsByClassName('contents')[0];
-// 			contents.appendChild(createLink(bookmarkItem));
-// 		}
-// 	} 
-// 	else 
-// 	{
-// 		if (
-// 			bookmarkItem.title == ""
-// 			|| bookmarkItem.title == "Bookmarks Menu"
-// 			)
-// 		{
-// 			//do nothing
-// 		}
-// 		else
-// 		{
-// 			console.log(makeIndent(indent) + "Folder: " + bookmarkItem.title);
-// 			indent++;
-// 		}
-
-// 	}
-// 	if (bookmarkItem.children) 
-// 	{
-// 		var child;
-// 		for (child of bookmarkItem.children) 
-// 		{
-// 			// var newfolder = createFolder(false,bookmarkItem.title);
-// 			// document.getElementById('main').appendChild(newfolder);
-// 			// logItems(child, indent, newfolder);
-// 			// logItems(child, indent);
-// 		}
-// 	}
-// 	indent--;
-// }
-
-
-var folderCnt = 0;
-function logItems(bookmarkItem,parentFolder)
+// var folderCnt = 0;
+// function bookmarklog(bookmarkItem,parentFolder)
+function bookmarklog(bookmarkItem,parentId)
 {
 
 	// var ThisFolder = createFolder(false,bookmarkItem.title);
 
+
+	// console.log("create folder");
+
 	var ThisFolder;
-	if (folderCnt == 0)
+	// if (folderCnt == 0)
+	if (parentId == "")
 	{
-		ThisFolder = createFolder(true,bookmarkItem.title,parentFolder);
+		// ThisFolder = createFolder(true,bookmarkItem.title,parentFolder);
+		ThisFolder = createFolder(true,bookmarkItem,parentId);
+		// console.log("createFolder(true,bookmarkItem.title,parentFolder);")
 	}
 	else
 	{
-		ThisFolder = createFolder(false,bookmarkItem.title,parentFolder);
+		// ThisFolder = createFolder(false,bookmarkItem.title,parentFolder);
+		ThisFolder = createFolder(false,bookmarkItem,parentId);
+		// console.log("createFolder(false,bookmarkItem.title,parentFolder);")
 	}
 	document.getElementById('main').appendChild(ThisFolder);
-	folderCnt += 1;
+	// folderCnt += 1;
+
+	// console.log("new folder: " + ThisFolder.id);
+
+	if (bookmarkItem.children.length == 0)
+	{
+		ThisFolder.style.display = "none";
+	}
 
 	var child;
 	for (child of bookmarkItem.children)
 	{
 		// console.log(child.title);
-		// console.log(child.url);
+		// console.log(child.url.substring(0,6));
 
-		if (child.url  == 'data:'
+		if (
+			// child.url
+			child.url  == 'data:'
+			|| child.title  == 'Most Visited' 
 			|| child.title  == 'Recent Tags'
 			)
 		{
@@ -2297,36 +2530,41 @@ function logItems(bookmarkItem,parentFolder)
 
 		if (child.children)
 		{
-			logItems(child, bookmarkItem.title);
+			// bookmarklog(child, bookmarkItem.title);
+			bookmarklog(child, bookmarkItem.id);
 		}
 
 	}
 }
 
 //log bookmark in console
-function logTree(bookmarkItems) 
+function bookmarkLoop(bookmarkItems) 
 {
-	// var newfolder = createFolder(true,"");
-	// document.getElementById('main').appendChild(newfolder);
-	// logItems(bookmarkItems[0], 0, newfolder);
-
-	// logItems(bookmarkItems[0], 0);
 
 	var bookmarkItem;
 	for (bookmarkItem of bookmarkItems[0].children) 
 	{
 		// console.log(bookmarkItem.title);
 
-		if (bookmarkItem.title == "Bookmarks Menu")
+		// console.log('in: logTree::');
+		var key = 'show_' + bookmarkItem.id;
+		// console.log(key);
+		// console.log(getConfig(key));
+
+		if (getConfig(key) == 1)
 		{
-			logItems(bookmarkItem,"");
+			// console.log(':: ' + key + ' :: ' + getConfig(key));
+
+			bookmarklog(bookmarkItem,"");
+
 		}
 
-		// var newfolder = createFolder(false,bookmarkItem.title);
-		// document.getElementById('main').appendChild(newfolder);
-		// logItems(child, indent, newfolder);
-		// logItems(child, indent);
 	}
+
+
+	// 	// var topSites = TopSites();
+	// 	// folder.appendChild(topSites);
+
 }
 
 //console log error
@@ -2350,14 +2588,183 @@ window.onresize = function(event) {
 window.onresize();
 
 // load options panel
-window.onhashchange = function(event) {
+window.onhashchange = function(event) 
+{
 	if (location.hash === '#options')
+	{
 		initSettings();
+	}
 };
-window.onhashchange();
+// window.onhashchange();
 
 // // refresh recently closed
 // if (chrome.sessions)
 // {
 // 	chrome.sessions.onChanged.addListener(refreshClosed);
 // }
+
+
+
+/*
+dragula([document.getElementById('main')], 
+{
+	isContainer: function (el) 
+	{
+		// console.log('isContainer: ' + el);
+	  return false; // only elements in drake.containers will be taken into account
+	},
+	moves: function (el, source, handle, sibling) 
+	{
+		// console.log('moves el: ' + el);
+		// console.log('moves source: ' + source);
+		// console.log('moves handle: ' + handle);
+		// console.log('moves sibling: ' + sibling);
+	  return true; // elements are always draggable by default
+	},
+	accepts: function (el, target, source, sibling) 
+	{
+		// console.log('accepts el: ' + el);
+		// console.log('accepts target: ' + target);
+		// console.log('accepts source: ' + source);
+		// console.log('accepts sibling: ' + sibling);
+	  return true; // elements can be dropped in any of the `containers` by default
+	},
+	invalid: function (el, handle) 
+	{
+		// console.log('invalid el: ' + el);
+		// console.log('invalid handle: ' + handle);
+	  return false; // don't prevent any drags from initiating by default
+	},
+	direction: 'vertical',             // Y axis is considered when determining where an element would be dropped
+	copy: false,                       // elements are moved by default, not copied
+	copySortSource: false,             // elements in copy-source containers can be reordered
+	revertOnSpill: false,              // spilling will put the element back where it was dragged from, if this is true
+	removeOnSpill: false,              // spilling will `.remove` the element, if this is true
+	mirrorContainer: document.body,    // set the element that gets mirror elements appended
+	ignoreInputTextSelection: true     // allows users to select input text, see details below
+  });
+*/
+
+//https://github.com/bevacqua/dragula
+var drake;
+function startDragula()
+{
+
+	drake = dragula([document.getElementById('main')], 
+	{
+		isContainer: function (el) 
+		{
+			// console.log('isContainer: ' + el);
+		  return false; // only elements in drake.containers will be taken into account
+		},
+		moves: function (el, source, handle, sibling) 
+		{
+			// console.log('moves el: ' + el);
+			// console.log('moves source: ' + source);
+			// console.log('moves handle: ' + handle);
+			// console.log('moves sibling: ' + sibling);
+		  return true; // elements are always draggable by default
+		},
+		accepts: function (el, target, source, sibling) 
+		{
+			// console.log('accepts el: ' + el);
+			// console.log('accepts target: ' + target);
+			// console.log('accepts source: ' + source);
+			// console.log('accepts sibling: ' + sibling);
+		  return true; // elements can be dropped in any of the `containers` by default
+		},
+		invalid: function (el, handle) 
+		{
+			// console.log('invalid el: ' + el);
+			// console.log('invalid handle: ' + handle);
+		  return false; // don't prevent any drags from initiating by default
+		},
+		direction: 'vertical',             // Y axis is considered when determining where an element would be dropped
+		copy: false,                       // elements are moved by default, not copied
+		copySortSource: false,             // elements in copy-source containers can be reordered
+		revertOnSpill: false,              // spilling will put the element back where it was dragged from, if this is true
+		removeOnSpill: false,              // spilling will `.remove` the element, if this is true
+		mirrorContainer: document.body,    // set the element that gets mirror elements appended
+		ignoreInputTextSelection: true     // allows users to select input text, see details below
+	  });
+}
+
+startDragula();
+drake.on('drop',function (el) 
+{
+	console.log('dropped');
+	// saveFolderOrder();
+	setTimeout(saveFolderOrder, 250);
+
+})
+
+drake.on('drag',function (el) 
+{
+	console.log('drag');
+})
+
+function saveFolderOrder()
+{
+
+	var folderOrder = '';
+	
+	var divs  = document.getElementById('main').getElementsByTagName('div');
+	for (var i = 0; i < divs.length; i += 1) 
+	{
+	
+		if (
+			divs[i].className == 'folder'
+			|| divs[i].className == 'specialfolder'
+			)
+		{
+			if (folderOrder == '')
+			{
+				folderOrder = divs[i].id;
+			}
+			else
+			{
+				folderOrder = folderOrder + ',' + divs[i].id;
+			}
+			
+		}
+	}
+
+	setConfig('folderOrder',folderOrder);
+	console.log(config);
+	console.log(folderOrder);
+}
+
+
+
+
+function runAtStart()
+{
+	console.log(config);
+	console.log(getConfig('folderOrder')); 
+	// setTimeout(showAllConfig,10000);
+}
+// runAtStart();
+
+
+//   dragula([document.getElementById(left), document.getElementById(right)])
+//   dragula([document.getElementById('main')]) 
+//   .on('drag', function (el) 
+//   {
+// 	console.log('drag');
+//     // el.className = el.className.replace('ex-moved', '');
+//   })
+//   .on('drop', function (el) 
+//   {
+// 	  console.log('dropped');
+//     el.className += ' ex-moved';
+//   })
+//   .on('over', function (el, container) 
+//   {
+// 	console.log('over');
+//     // container.className += ' ex-over';
+//   })
+//   .on('out', function (el, container) 
+//   {
+// 	console.log('out');
+//     // container.className = container.className.replace('ex-over', '');
+//   });
