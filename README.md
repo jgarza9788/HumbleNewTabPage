@@ -11,6 +11,7 @@ Redesigned new tab page featuring your bookmarks, most visited
 
 ## Future Features 
 * resizing Icons
+* Icon Layout
 * rename/edit bookmarks  
   
 
@@ -31,6 +32,9 @@ Redesigned new tab page featuring your bookmarks, most visited
 This project is licensed under the **MIT License**, see [LICENSE_MIT.txt](LICENSE_MIT.txt) for details.
 
 ## Changelog
+### Version 0.4.1 - December  2, 2017
+* Fixed dragging bug (move with title bar only)
+
 ### Version 0.4 - December  2, 2017
 * Fixed TopSite return if on root
 * Reordering sections

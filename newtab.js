@@ -2657,13 +2657,12 @@ function startDragula()
 			// console.log('isContainer: ' + el);
 		  return false; // only elements in drake.containers will be taken into account
 		},
-		moves: function (el, source, handle, sibling) 
+		moves: function (el, container, handle) 
 		{
-			// console.log('moves el: ' + el);
-			// console.log('moves source: ' + source);
 			// console.log('moves handle: ' + handle);
-			// console.log('moves sibling: ' + sibling);
-		  return true; // elements are always draggable by default
+			// console.log('moves handle: ' + handle.id);
+			// console.log('moves handle: ' + handle.className);
+			return handle.classList.contains('title');
 		},
 		accepts: function (el, target, source, sibling) 
 		{
