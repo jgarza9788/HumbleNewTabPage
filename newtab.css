@@ -251,6 +251,27 @@ label span {
 	max-width: 10.9em;
 	line-height: 1.9;
 }
+#info
+{
+	display: inline;
+	width: auto;
+	height: auto;
+	float: left;
+	text-align: left;
+	max-width: 20em;
+	line-height: 1.9;	
+}
+#info a
+{
+	display: inline;
+	width: auto;
+	height: auto;
+	float: left;
+	text-align: left;
+	max-width: 20em;
+	line-height: 1.9;
+}
+
 input, select, textarea, .revert {
 	width: 9em;
 	margin: 0 0 0 .5em;
