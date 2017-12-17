@@ -1,6 +1,6 @@
 {
 	"name": "New Tab Page",
-	"version": "0.4.1",
+	"version": "0.5",
 	"manifest_version": 2,
 	"description": "Redesigned new tab page featuring your bookmarks, most visited",
 	"icons": {

@@ -1381,8 +1381,9 @@ var config = {
 	shadow_blur: 1.1,
 	highlight_round: 1,
 	fade: 1,
+	// itemsperrow: 5,
 	// spacing: 1,
-	// width: 1,
+	width: 650,
 	// h_pos: 1,
 	// v_margin: 1,
 	// slide: 1,
@@ -1406,6 +1407,7 @@ var config = {
 	// number_closed: 10,
 	// number_recent: 10,
 	folderOrder: '',
+	topsitesblacklist: '',
 };
 
 // color theme values
@@ -1636,6 +1638,8 @@ function getStyle(key, value)
 			return '#main a { color: ' + value + '; } .gu-mirror .contents { color: ' + value + '; }';
 		case 'titlebackground_color':
 			return '.topbar { background-color: ' + value + '; }';
+		case 'itemsperrow':
+			return '.contents { grid-template-columns: repeat( ' + value + ', 1fr );}';
 		case 'background_color':
 			return '.gu-mirror {background-color: ' + value + '; } body { background-color: ' + value + '; }';
 		case 'background_image':
@@ -1667,9 +1671,10 @@ function getStyle(key, value)
 							'padding-left: ' + scale(value, .8, 2, .4) + 'em; ' +
 							'padding-right: ' + scale(value, .8, 2, .4) + 'em; }';
 		case 'width':
-			return '#main { width: ' + (getConfig('auto_scale') ?
-				scale(value, 80, 100, 20) + '%' :
-				scale(value, 1000, 3000, 400) + 'px') + '; }';
+			return '#main {width: ' + value + 'px ; }'
+			// return '#main { width: ' + (getConfig('auto_scale') ?
+			// 	scale(value, 80, 100, 20) + '%' :
+			// 	scale(value, 1000, 3000, 400) + 'px') + '; }';
 		case 'h_pos':
 			var margin = 100 - scale(getConfig('width'), 80, 100, 20);
 			return '#main { left: ' + scale(value, 0, margin/2, -margin/2) + '%; }';
@@ -1710,7 +1715,7 @@ function hexToRgb(hex) {
 function onChange(key, value) 
 {
 
-	// console.log('onChange(' + key +','+ value + ')');
+	console.log('onChange(' + key +','+ value + ')');
 
 	if (value == null)
 	{
@@ -1740,6 +1745,51 @@ function onChange(key, value)
 			// add style rules
 			style.innerText = css;
 		}
+
+		// if (key == 'itemsperrow')
+		// {
+		// 	if (value == 8)
+		// 	{
+		// 		// document.getElementById('wide8').href = 'wide8.css';
+		// 		document.getElementById('wide7').href = '';
+		// 		document.getElementById('wide6').href = '';
+		// 		document.getElementById('wide5').href = '';
+		// 		document.getElementById('wide4').href = '';
+		// 	}
+		// 	else if (value == 7)
+		// 	{
+		// 		document.getElementById('wide8').href = '';
+		// 		// document.getElementById('wide7').href = 'wide7.css';
+		// 		document.getElementById('wide6').href = '';
+		// 		document.getElementById('wide5').href = '';
+		// 		document.getElementById('wide4').href = '';
+		// 	}
+		// 	else if (value == 6)
+		// 	{
+		// 		document.getElementById('wide8').href = '';
+		// 		document.getElementById('wide7').href = '';
+		// 		// document.getElementById('wide6').href = 'wide6.css';
+		// 		document.getElementById('wide5').href = '';
+		// 		document.getElementById('wide4').href = '';
+		// 	}
+		// 	else if (value == 5)
+		// 	{
+		// 		document.getElementById('wide8').href = '';
+		// 		document.getElementById('wide7').href = '';
+		// 		document.getElementById('wide6').href = '';
+		// 		// document.getElementById('wide5').href = 'wide5.css';
+		// 		document.getElementById('wide4').href = '';
+		// 	}
+		// 	else if (value == 4)
+		// 	{
+		// 		document.getElementById('wide8').href = '';
+		// 		document.getElementById('wide7').href = '';
+		// 		document.getElementById('wide6').href = '';
+		// 		document.getElementById('wide5').href = '';
+		// 		// document.getElementById('wide4').href = 'wide4.css';
+		// 	}
+		// }
+		
 	// } 
 	// else if (styles.hasOwnProperty(key)) 
 	// {
@@ -1878,6 +1928,54 @@ function initConfig(key)
 			setConfig(key, input.type == 'checkbox' ? Number(input.checked) : input.value);
 		}
 	};
+
+
+	input.ondragenter = function (e) 
+	{ 
+		// this.className = 'nicenice lvl-over'; 
+		return false; 
+	};
+	input.ondragleave = function () { 
+		// this.className = 'nicenice'; 
+		return false; 
+	};
+	input.ondrop = function (e) 
+	{
+		// e.preventDefault();
+		// console.log(e);
+		// setConfig(key, input.value);
+		setTimeout(() => {setConfig(key, input.value);}, 250);
+		
+	};
+	input.ondragover = function (e) 
+	{ 
+		e.preventDefault() 
+	  
+	}
+
+	// input.onpaste = function(event)
+	// {
+	// 	if (input.type == 'text')
+	// 	{
+	// 		setConfig(key,input.value);
+	// 	}
+	// };
+
+	// input.onmouseup = function(event)
+	// {
+	// 	if (input.type == 'text')
+	// 	{
+	// 		setConfig(key,input.value);
+	// 	}
+	// };
+
+	// input.ondrop = function(event)
+	// {
+	// 	if (input.type == 'text')
+	// 	{
+	// 		setConfig(key,input.value);
+	// 	}
+	// };
 
 	var reset = document.createElement('a');
 	reset.href = '#';
@@ -2126,6 +2224,7 @@ function getBookmarks()
 }
 
 var topsitesLoaded;
+// var topsitesblacklistArray;
 function loadTopSites()
 {
 	// console.log(getConfig('show_top'));
@@ -2135,12 +2234,13 @@ function loadTopSites()
 
 	if (getConfig('show_top') == 1)
 	{
+
+		// topsitesblacklistArray = getConfig('topsitesblacklist').split(',');
+
 		var topsites = browser.topSites.get();
 		topsites.then(topsitesLoop, onRejected);
 		topsites.then(function(){topsitesLoaded = 1;})
 		// topsites.then(reorderTopSites);
-
-		
 	}
 	else
 	{
@@ -2210,14 +2310,40 @@ function topsitesLoop(topsiteItems)
 	// var contents = TS_Folder.getElementsByClassName('contents');
 	// console.log(contents);
 
+	// console.log(topsitesblacklistArray);
+
 	var num = getConfig('number_top');
 	var cnt = 0;
+	// var inBlackList = false;
+	var topsitesblacklist = getConfig('topsitesblacklist');
 	for (var i = 0; i < topsiteItems.length; i++) 
 	{
 
 		if (topsiteItems[i].url.substring(0,4) == 'file'
 			|| topsiteItems[i].title == 'New Tab'
 			)
+		{
+			continue;
+		}
+
+		// inBlackList = false;
+		// for (var j = 0 ;j < topsitesblacklistArray.length;j++)
+		// {
+		// 	console.log(topsitesblacklistArray[j]);
+		// 	console.log(topsiteItems[i].url);
+		// 	console.log(topsitesblacklistArray[j].includes(topsiteItems[i].url));
+		// 	if (topsitesblacklistArray[j].includes(topsiteItems[i].url))
+		// 	{
+		// 		inBlackList = true;
+		// 	}
+		// }
+
+		// if (inBlackList)
+		// {
+		// 	continue;
+		// }
+
+		if (topsitesblacklist.includes(topsiteItems[i].url))
 		{
 			continue;
 		}

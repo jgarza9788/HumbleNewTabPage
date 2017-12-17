@@ -4,6 +4,13 @@
 <meta charset="utf-8" />
 <title>New Tab</title>
 <link rel="stylesheet" href="newtab.css">
+<!-- <link rel="stylesheet" href="wide5.css" id="wide"> -->
+<!-- <link rel="stylesheet" href="wide8.css" id="wide8"> -->
+<!-- <link rel="stylesheet" href="wide7.css" id="wide7"> -->
+<!-- <link rel="stylesheet" href="wide6.css" id="wide6"> -->
+<!-- <link rel="stylesheet" href="wide5.css" id="wide5"> -->
+<!-- <link rel="stylesheet" href="wide4.css" id="wide4"> -->
+
 <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
 
 <link href="dragula/dragula.css" rel="stylesheet" type="text/css">
@@ -23,9 +30,9 @@
 	<ul id="options_nav">
 		<li><a href="#options/settings" class="current">Settings</a></li>
 		<li><a href="#options/appearance">Appearance</a></li>
-		<li><a href="#options/info">Info</a></li>
 		<!-- <li><a href="#options/export">Import/Export</a></li>  -->
-		<!-- <li><a href="#options/advanced">Advanced</a></li> -->
+		<li><a href="#options/advanced">Advanced</a></li>
+		<li><a href="#options/info">Info</a></li>
 	</ul>
 	<div class="section current">
 	<fieldset>
@@ -47,6 +54,7 @@
 			<!-- </select> -->
 		</label>
 	</fieldset>
+
 		<!-- <label><span>Lock columns</span><input id="options_lock" type="checkbox"/></label> -->
 		<!-- <label><span>Auto-close folders</span><input id="options_auto_close" type="checkbox"/></label> -->
 		<!-- <label><span>Show top-level folders</span><input id="options_show_root" type="checkbox"/></label> -->
@@ -65,6 +73,7 @@
 		<!-- <label><span>Other devices</span><input id="options_show_devices" type="checkbox"/></label> -->
 		<!-- <label><span>Weather</span><input id="options_show_weather" type="checkbox"/></label> -->
 	</fieldset>
+
 	<!-- <fieldset>
 		<legend>Weather</legend>
 		<label><span>Location</span><input id="options_weather_location" type="text"/></label>
@@ -111,15 +120,15 @@
 		<label><span>Highlight text</span><input id="options_highlight_font_color" type="color"/></label>
 		<label><span>Shadow</span><input id="options_shadow_color" type="color"/></label>
 	</fieldset>
-	<!-- <fieldset>
+	<fieldset>
 		<legend>Layout</legend>
-		<label><span>Items Per Row</span><input id="options_itemsperrow" type="number" min="3" max="5" step="0.001"/></label>
-		<label><span>Item spacing</span><input id="options_spacing" type="range" min="0" max="2" step="0.001"/></label>
-		<label><span>Top margin</span><input id="options_v_margin" type="range" min="0" max="2" step="0.001"/></label>
-		<label><span>Column width</span><input id="options_width" type="range" min="0" max="2" step="0.001"/></label>
-		<label><span>Align</span><input id="options_h_pos" type="range" min="0" max="2" step="0.001"/></label>
-		<label><span>Scale with window size</span><input id="options_auto_scale" type="checkbox"/></label>
-	</fieldset> -->
+		<!-- <label><span>Max Items Per Row</span><input id="options_itemsperrow" type="number" min="4" max="8" step="1"/></label> -->
+		<!-- <label><span>Item spacing</span><input id="options_spacing" type="range" min="0" max="2" step="0.001"/></label> -->
+		<!-- <label><span>Top margin</span><input id="options_v_margin" type="range" min="0" max="2" step="0.001"/></label> -->
+		<label><span>Max Width</span><input id="options_width" type="range" min="420" max="1225" step="135"/></label>
+		<!-- <label><span>Align</span><input id="options_h_pos" type="range" min="0" max="2" step="0.001"/></label> -->
+		<!-- <label><span>Scale with window size</span><input id="options_auto_scale" type="checkbox"/></label> -->
+	</fieldset>
 	<fieldset>
 		<legend>Highlight</legend>
 		<label><span>Shadow size</span><input id="options_shadow_blur" type="range" min="0" max="2" step="0.001"/></label>
@@ -158,22 +167,9 @@
 		</select></label>
 	</fieldset> -->
 	</div>
-	<div class = "section">
-		<fieldset>
-			<label>
-			<span id= "info">
-			Hello I'm Justin Garza.</br>
-			Thanks for using my Addon.</br>
-			You can find more about this Addon <a target='_blank' href="https://github.com/jgarza9788/NewTabPage">https://github.com/jgarza9788/NewTabPage</a></br>
-			Or get to know me!</br >
-			<a target='_blank' href="http://justingarza.info">http://justingarza.info</a></br>
-			<a href="mailto:jgarza9788@gmail.com?Subject=NewTabPageAddon" target="_top">jgarza9788@gmail.com</a></br>
-			</span>
-			</label>
-		</fieldset>
-	</div>
-<!-- 	
-	<div class="section">
+
+	
+	<!-- <div class="section">
 	<fieldset>
 		<legend>Export Settings</legend>
 		<label><textarea id="options_export" readonly></textarea></label>
@@ -182,25 +178,47 @@
 		<legend>Import Settings</legend>
 		<label><textarea id="options_import"></textarea></label>
 	</fieldset>
-	</div>
+	</div> -->
 	<div class="section">
 	<fieldset>
+		<legend>TopSites-BlackList</legend>
+		<label><span id="info">List URLs here (format dosen't matter)</span></label>
+		<label><textarea id="options_topsitesblacklist" type="text"></textarea></label>
+	</fieldset>
+<!-- <fieldset>
 		<legend>Generated CSS</legend>
 		<label><textarea id="all_css" disabled></textarea></label>
 	</fieldset>
 	<fieldset>
 		<legend>Custom CSS</legend>
 		<label><textarea id="options_css"></textarea></label>
+	</fieldset> 
+-->
+	</div>>
+
+	<div class = "section">
+	<fieldset>
+		<legend>Info:</legend>
+		<label>
+		<span id="info">
+		Hello I'm Justin Garza.</br>
+		Thanks for using my Addon.</br>
+		You can find more about this Addon <a target='_blank' href="https://github.com/jgarza9788/NewTabPage">https://github.com/jgarza9788/NewTabPage</a></br>
+		Or get to know me!</br >
+		<a target='_blank' href="http://justingarza.info">http://justingarza.info</a></br>
+		<a href="mailto:jgarza9788@gmail.com?Subject=NewTabPageAddon" target="_top">jgarza9788@gmail.com</a></br>
+		</span>
+		</label>
 	</fieldset>
 	</div> 
-	 -->
+	
 </div>
 
 <!-- <a id="donate" href="https://paypal.me/JGarza9788/1">Buy Me a <h3>🍺</h3></a> -->
 
 <!-- <a id="donate" href="https://paypal.me/JGarza9788/1">Buy Me a <i class="em em-beer"></i></a> -->
 <a id="donate" href="https://www.battleforthenet.com"><i class="em em-warning"></i>Save the Internet! <i class="em em-warning"></i></i></a>
-<div id="version">v0.4.1</div>
+<div id="version">v0.6</div>
 
 <script src='dragula/dragula.js'></script>
 <script src='dragula/dragula.min.js'></script>

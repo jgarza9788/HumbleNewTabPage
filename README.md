@@ -7,13 +7,14 @@ Redesigned new tab page featuring your bookmarks, most visited
 * Simple, clean design
 * Fast loading and lightweight
 * Options (Fonts, Colors, Content, and more)
-* Reordering folders
+* Reordering Folders
+* Adaptive Layout
+* TopSites-BlackList
 
 ## Future Features 
-* resizing Icons
-* Icon Layout
-* rename/edit bookmarks  
-  
+* email me and request a feature!
+* Icons Per Row
+ 
 
 ## Download From
 ~~Download for Chrome~~ - Coming Soon!  
@@ -32,6 +33,13 @@ Redesigned new tab page featuring your bookmarks, most visited
 This project is licensed under the **MIT License**, see [LICENSE_MIT.txt](LICENSE_MIT.txt) for details.
 
 ## Changelog
+### Version 0.6 - December  17, 2017
+* Resize Width
+ 
+### Version 0.5 - December  5, 2017
+* Adaptive Layout
+* TopSite-BlackList
+ 
 ### Version 0.4.1 - December  2, 2017
 * Fixed dragging bug (move with title bar only)
 
