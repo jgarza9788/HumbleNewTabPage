@@ -10,7 +10,7 @@ body {
 }
 #main {
 
-	width: 750px;
+	width: 825px;
 	/* width: 930px; */
 	/* width: 1000px; */
 	/* width: 768px; */
@@ -334,6 +334,7 @@ input[type="file"]::-webkit-file-upload-button
 
 .revert {
 	display: inline-block;
+	display: none; 
 	width: 18px;
 	height: 16px;
 	opacity: .5;

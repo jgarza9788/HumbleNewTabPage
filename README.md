@@ -10,11 +10,10 @@ Redesigned new tab page featuring your bookmarks, most visited
 * Reordering Folders
 * Adaptive Layout
 * TopSites-BlackList
+* Icons Per Row
 
 ## Future Features 
 * email me and request a feature!
-* Icons Per Row
- 
 
 ## Download From
 ~~Download for Chrome~~ - Coming Soon!  
@@ -33,6 +32,10 @@ Redesigned new tab page featuring your bookmarks, most visited
 This project is licensed under the **MIT License**, see [LICENSE_MIT.txt](LICENSE_MIT.txt) for details.
 
 ## Changelog
+### Version 0.7 - December  31, 2017
+* Fork for Chrome
+* Fixed Default Width
+
 ### Version 0.6 - December  17, 2017
 * Resize Width
  

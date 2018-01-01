@@ -1383,7 +1383,7 @@ var config = {
 	fade: 1,
 	// itemsperrow: 5,
 	// spacing: 1,
-	width: 650,
+	width: 825,
 	// h_pos: 1,
 	// v_margin: 1,
 	// slide: 1,
@@ -1977,6 +1977,7 @@ function initConfig(key)
 	// 	}
 	// };
 
+	
 	var reset = document.createElement('a');
 	reset.href = '#';
 	reset.className = 'revert';
@@ -1990,6 +1991,7 @@ function initConfig(key)
 
 	input.reset = reset;
 	input.parentNode.appendChild(reset);
+
 	showConfig(key);
 }
 
@@ -2183,6 +2185,7 @@ loadNewTabPage();
 
 
 // var starttime;
+
 function loadNewTabPage()
 {
 	// var bookmarkPromise;
@@ -2207,9 +2210,21 @@ var bookmarksLoaded;
 function getBookmarks() 
 {
 	bookmarksLoaded = 0;
-	var allBookmarks = browser.bookmarks.getTree();
-	allBookmarks.then(bookmarkLoop, onRejected);
-	allBookmarks.then(function(){bookmarksLoaded = 1;})
+	// var allBookmarks = chrome.bookmarks.getTree();
+	// allBookmarks.then(bookmarkLoop, onRejected);
+	// allBookmarks.then(function(){bookmarksLoaded = 1;})
+
+	// chrome.bookmarks.getTree
+	// (
+	// 	function()
+	// 	{
+	// 		bookmarkLoop();
+	// 		bookmarksLoaded = 1;
+	// 	}
+	// )
+
+	chrome.bookmarks.getTree(bookmarkLoop);
+	chrome.bookmarks.getTree(function(){bookmarksLoaded = 1;});
 
 	// allBookmarks.then(
 	// 	function(){
@@ -2237,10 +2252,25 @@ function loadTopSites()
 
 		// topsitesblacklistArray = getConfig('topsitesblacklist').split(',');
 
-		var topsites = browser.topSites.get();
-		topsites.then(topsitesLoop, onRejected);
-		topsites.then(function(){topsitesLoaded = 1;})
+		// var topsites = browser.topSites.get();
+		// topsites.then(topsitesLoop, onRejected);
+		// topsites.then(function(){topsitesLoaded = 1;})
 		// topsites.then(reorderTopSites);
+
+		// chrome.topSites.get
+		// (
+		// 	function()
+		// 	{
+		// 		topsitesLoop();
+		// 		topsitesLoaded = 1;
+		// 		reorderTopSites();
+		// 	}
+		// )
+
+		chrome.topSites.get(topsitesLoop);
+		chrome.topSites.get(function(){topsitesLoaded = 1;});
+
+
 	}
 	else
 	{
