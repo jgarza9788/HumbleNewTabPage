@@ -16,7 +16,7 @@ Redesigned new tab page featuring your bookmarks, most visited
 * email me and request a feature!
 
 ## Download From
-~~Download for Chrome~~ - Coming Soon!  
+[Download for Chrome](https://chrome.google.com/webstore/detail/new-tab-page/acdffnbcldcleooajmkkmmecakflffpd)  
 [Download for Firefox](https://addons.mozilla.org/en-US/firefox/addon/newtabpage/)
 
 ## Screenshots
