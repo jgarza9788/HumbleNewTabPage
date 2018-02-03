@@ -2523,14 +2523,20 @@ function createLink(bookmarkItem)
 		isFolder = false;
 		url = bookmarkItem.url;
 		url0 = url.replace("https://","").replace("http://","");
+
+		console.log(url0);
+
 		url0 = url0.substring(0,url0.indexOf("/"));
+
+		console.log(url0);
 
 		// if (url0.includes('imgur'))
 		// {
 		// 	url0 = "https://imgur.com/";
 		// }
 
-		imgsrc = 'https://icons.better-idea.org/icon?url=' + url0 + '&size=80..120..200';
+		imgsrc = ' https://besticon-demo.herokuapp.com/icon?url=' + url0 + '&size=80..120..200';
+		// console.log(imgsrc);
 		id = bookmarkItem.title;
 		// id = bookmarkItem.id;
 	}
