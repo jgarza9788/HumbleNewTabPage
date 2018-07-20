@@ -2556,8 +2556,8 @@ function createLink(bookmarkItem)
 		// 	url0 = "https://imgur.com/";
 		// }
 
-		imgsrc = 'https://besticon-demo.herokuapp.com/icon?url=' + url0 + '&size=80..120..200';
-		// imgsrc = 'https://get-web-icons.herokuapp.com/icon?url=' + url0 + '&size=80..120..200';
+		// imgsrc = 'https://besticon-demo.herokuapp.com/icon?url=' + url0 + '&size=80..120..200';
+		imgsrc = 'https://get-web-icons.herokuapp.com/icon?url=' + url0 + '&size=80..120..200';
 
 		id = bookmarkItem.title;
 		// id = bookmarkItem.id;
