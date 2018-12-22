@@ -1378,9 +1378,9 @@ var config = {
 	// background_align: 'left top',
 	// background_repeat: 'repeat',
 	// background_size: 'auto',
-	shadow_blur: 1.1,
+	shadow_blur: 1.33,
 	highlight_round: 1,
-	fade: 1,
+	fade: 1.33,
 	// itemsperrow: 5,
 	// spacing: 1,
 	width: 825,
@@ -1429,6 +1429,15 @@ var themes = {
 		highlight_color: '#3399ff',
 		highlight_font_color: '#ffffff',
 		shadow_color: '#97cbff'
+	},
+	Dark: {
+		titlefont_color: '#ffffff',
+		font_color: '#848789',
+		titlebackground_color: '#202124',
+		background_color: '#323639',
+		highlight_color: '#202124',
+		highlight_font_color: '#ffffff',
+		shadow_color: '#000000'
 	},
 	Dusk: {
 		titlefont_color: '#79759a',
