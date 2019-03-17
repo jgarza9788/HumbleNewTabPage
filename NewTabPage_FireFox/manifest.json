@@ -24,8 +24,7 @@
 		"homepage": "newtab.html"
 	},
 	"background" : {
-		"scripts" : ["background.js"],
-		"persistent" : true
+		"scripts" : ["background.js"]
 	},
 	"options_ui": {
 		"page": "newtab.html#options",

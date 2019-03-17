@@ -1378,9 +1378,9 @@ var config = {
 	// background_align: 'left top',
 	// background_repeat: 'repeat',
 	// background_size: 'auto',
-	shadow_blur: 1.1,
+	shadow_blur: 1.33,
 	highlight_round: 1,
-	fade: 1,
+	fade: 1.33,
 	// itemsperrow: 5,
 	// spacing: 1,
 	width: 825,
@@ -1429,6 +1429,15 @@ var themes = {
 		highlight_color: '#3399ff',
 		highlight_font_color: '#ffffff',
 		shadow_color: '#97cbff'
+	},
+	Dark: {
+		titlefont_color: '#ffffff',
+		font_color: '#848789',
+		titlebackground_color: '#202124',
+		background_color: '#323639',
+		highlight_color: '#202124',
+		highlight_font_color: '#ffffff',
+		shadow_color: '#000000'
 	},
 	Dusk: {
 		titlefont_color: '#79759a',
@@ -1991,7 +2000,6 @@ function initConfig(key)
 
 	input.reset = reset;
 	input.parentNode.appendChild(reset);
-	
 
 	showConfig(key);
 }
@@ -2211,9 +2219,21 @@ var bookmarksLoaded;
 function getBookmarks() 
 {
 	bookmarksLoaded = 0;
-	var allBookmarks = browser.bookmarks.getTree();
-	allBookmarks.then(bookmarkLoop, onRejected);
-	allBookmarks.then(function(){bookmarksLoaded = 1;})
+	// var allBookmarks = chrome.bookmarks.getTree();
+	// allBookmarks.then(bookmarkLoop, onRejected);
+	// allBookmarks.then(function(){bookmarksLoaded = 1;})
+
+	// chrome.bookmarks.getTree
+	// (
+	// 	function()
+	// 	{
+	// 		bookmarkLoop();
+	// 		bookmarksLoaded = 1;
+	// 	}
+	// )
+
+	chrome.bookmarks.getTree(bookmarkLoop);
+	chrome.bookmarks.getTree(function(){bookmarksLoaded = 1;});
 
 	// allBookmarks.then(
 	// 	function(){
@@ -2241,10 +2261,25 @@ function loadTopSites()
 
 		// topsitesblacklistArray = getConfig('topsitesblacklist').split(',');
 
-		var topsites = browser.topSites.get();
-		topsites.then(topsitesLoop, onRejected);
-		topsites.then(function(){topsitesLoaded = 1;})
+		// var topsites = browser.topSites.get();
+		// topsites.then(topsitesLoop, onRejected);
+		// topsites.then(function(){topsitesLoaded = 1;})
 		// topsites.then(reorderTopSites);
+
+		// chrome.topSites.get
+		// (
+		// 	function()
+		// 	{
+		// 		topsitesLoop();
+		// 		topsitesLoaded = 1;
+		// 		reorderTopSites();
+		// 	}
+		// )
+
+		chrome.topSites.get(topsitesLoop);
+		chrome.topSites.get(function(){topsitesLoaded = 1;});
+
+
 	}
 	else
 	{
@@ -2523,12 +2558,7 @@ function createLink(bookmarkItem)
 		isFolder = false;
 		url = bookmarkItem.url;
 		url0 = url.replace("https://","").replace("http://","");
-
-		console.log(url0);
-
 		url0 = url0.substring(0,url0.indexOf("/"));
-
-		console.log(url0);
 
 		// if (url0.includes('imgur'))
 		// {
@@ -2537,8 +2567,7 @@ function createLink(bookmarkItem)
 
 		// imgsrc = 'https://besticon-demo.herokuapp.com/icon?url=' + url0 + '&size=80..120..200';
 		imgsrc = 'https://get-web-icons.herokuapp.com/icon?url=' + url0 + '&size=80..120..200';
-		
-		// console.log(imgsrc);
+
 		id = bookmarkItem.title;
 		// id = bookmarkItem.id;
 	}
