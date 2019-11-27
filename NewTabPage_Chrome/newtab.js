@@ -1378,7 +1378,7 @@ var config = {
 	// background_align: 'left top',
 	// background_repeat: 'repeat',
 	// background_size: 'auto',
-	shadow_blur: 1.33,
+	shadow_blur: 1.66,
 	highlight_round: 1,
 	fade: 1.33,
 	// itemsperrow: 5,
@@ -1403,7 +1403,7 @@ var config = {
 	// auto_close: 0,
 	// auto_scale: 1,
 	// css: '',
-	number_top: 10,
+	number_top: 12,
 	// number_closed: 10,
 	// number_recent: 10,
 	folderOrder: '',
@@ -1437,7 +1437,7 @@ var themes = {
 		background_color: '#323639',
 		highlight_color: '#202124',
 		highlight_font_color: '#ffffff',
-		shadow_color: '#000000'
+		shadow_color: '#1d1d1d'
 	},
 	Dusk: {
 		titlefont_color: '#79759a',
@@ -1573,7 +1573,7 @@ function getConfig(key)
 // set config value
 function setConfig(key, value) 
 {
-	// console.log('setConfig(' + key + ',' + value + ')');
+	console.log('setConfig(' + key + ',' + value + ')');
 
 	if (value != null)
 	{
@@ -1587,7 +1587,7 @@ function setConfig(key, value)
 	// special case settings
 	if (key == 'lock' || key == 'newtab' || key == 'show_root' || key.substring(0,6) == 'number')
 	{
-		loadColumns();
+		// loadColumns();
 	}
 	else if (key == 'theme') 
 	{
@@ -1731,7 +1731,8 @@ function onChange(key, value)
 		value = getConfig(key);
 	}
 
-	// console.log('value: ' + value);
+    console.log('value: ' + value);
+    console.log('key: ' + key);
 
 	// if (value != config[key]) 
 	// {
@@ -2351,7 +2352,8 @@ function topsitesLoop(topsiteItems)
 
 	// console.log(topsitesblacklistArray);
 
-	var num = getConfig('number_top');
+    var num = getConfig('number_top');
+    // console.log(num)
 	var cnt = 0;
 	// var inBlackList = false;
 	var topsitesblacklist = getConfig('topsitesblacklist');
@@ -2387,7 +2389,7 @@ function topsitesLoop(topsiteItems)
 			continue;
 		}
 
-		// console.log(topsiteItems[i].title + "::" + topsiteItems[i].url);
+		console.log(topsiteItems[i].title + "::" + topsiteItems[i].url);
 
 		if (cnt < num)
 		{
@@ -2549,24 +2551,22 @@ function IsRootFolder(id)
 
 function createLink(bookmarkItem)
 {
-	// console.log(bookmarkItem.title + "::" + bookmarkItem.url);
+    console.log(bookmarkItem.title + "::" + bookmarkItem.url);
+    
 	var url, url0, imgsrc, isFolder;
 	var id;
 
 	if (bookmarkItem.url)
 	{
-		isFolder = false;
-		url = bookmarkItem.url;
-		url0 = url.replace("https://","").replace("http://","");
-		url0 = url0.substring(0,url0.indexOf("/"));
+        isFolder = false;
+        
+        url = bookmarkItem.url;
+        url0 = url.replace("https://","").replace("http://","");
+        url0 = url0.substring(0,url0.indexOf("/"));
+        console.log(url0)
+        // imgsrc = 'https://besticon-demo.herokuapp.com/icon?url=' + url0 + '&size=80..120..200';
+        imgsrc = 'https://get-web-icons.herokuapp.com/icon?url=' + url0 + '&size=80..120..200';
 
-		// if (url0.includes('imgur'))
-		// {
-		// 	url0 = "https://imgur.com/";
-		// }
-
-		// imgsrc = 'https://besticon-demo.herokuapp.com/icon?url=' + url0 + '&size=80..120..200';
-		imgsrc = 'https://get-web-icons.herokuapp.com/icon?url=' + url0 + '&size=80..120..200';
 
 		id = bookmarkItem.title;
 		// id = bookmarkItem.id;
@@ -2622,7 +2622,8 @@ function createLink(bookmarkItem)
 	var image;
 	image = document.createElement('img');
 	//image.src = 'https://icons.better-idea.org/icon?url=' + url0 + '&size=80..120..200';
-	image.src = imgsrc;
+    image.src = imgsrc;
+    // image.alt = '/resources/genericIcon.png';
 
 	
 	// var div;
